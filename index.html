@@ -88,10 +88,13 @@
     <div class="link-container">
         <a href="checklist.html" class="button">持ち物チェックリストへ</a>
         <a href="https://www.hilton.com/ja/hotels/hnleses-embassy-suites-waikiki-beach-walk/" target="_blank" class="button">ホテル情報</a>
-        <div class="coming-soon-container">
-            <a href="checklist.html" class="button">旅程</a>
-            <a class="coming-soon"><span>coming soon...</span></a>
-        </div>
+        <!-- <div class="coming-soon-container"> -->
+            <a href="schedule.html" class="button">挙式スケジュール</a>
+            <!-- <a class="coming-soon"><span>coming soon...</span></a> -->
+        <!-- </div> -->
+    </div>
+    <div id="countdown-container" style="text-align:center; padding:1em 0; font-size:1.2em; color:#c03b4a;">
+      出発まで: <span id="countdown">Loading...</span>
     </div>
 </main>
 
@@ -99,4 +102,29 @@
     &copy; 2025 Family Wedding Trip
   </footer>
 </body>
+<script>
+  // 出発日（例: 2025年10月1日 10:00）
+  const targetDate = new Date("2025-08-22T21:55:00");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").textContent = "いよいよ出発日！🎉";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("countdown").textContent =
+      `${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 </html>
