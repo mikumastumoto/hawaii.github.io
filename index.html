@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
   <title>ハワイウェディング旅行サイト</title>
   <style>
     body {
@@ -262,7 +265,7 @@
     #turtle {
       position: absolute;
       bottom: 50px;
-      left: -200px;
+      right: -200px;
       width: 150px;
       height: auto;
       animation: swim 10s linear infinite, wiggle 0.3s ease-in-out infinite alternate;
@@ -271,21 +274,21 @@
 
     @keyframes swim {
       0% {
-        left: -200px;
+        right: -200px;
       }
 
       100% {
-        left: 800px;
+        right: 800px;
       }
     }
 
     @keyframes wiggle {
       0% {
-        transform: rotate(-5deg);
+        transform: rotate(5deg);
       }
 
       100% {
-        transform: rotate(5deg);
+        transform: rotate(-5deg);
       }
     }
   </style>
@@ -294,7 +297,7 @@
 <body>
   <header>
     <div class="header-container">
-      <h1>Hawaii Wedding Party Trip</h1>
+      <h1 style="font-family: Noto Serif JP, serif; font-size: 40px;">Hawaii Wedding Party Trip</h1>
       <p class="host-name">RIKU&nbsp; & &nbsp;MIKU</p>
       <div class="intro">
         <p class="explain">Thankyou for coming to our Wedding party.<br /> We hope you will enjoy Hawaii's beautiful
