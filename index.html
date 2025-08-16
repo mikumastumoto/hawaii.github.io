@@ -19,8 +19,9 @@
     }
 
     header {
-      height: 100vh;
       position: relative;
+      min-height: calc(var(--vh, 1vh) * 100);
+      min-height: 100dvh;
     }
 
     .page-title {
@@ -30,12 +31,13 @@
     }
 
     .header-container {
-      padding: 2em 1em;
+      padding: 0em 1em 2em 1em;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100%;
+      min-height: calc(var(--vh, 1vh) * 100);
+      min-height: 100dvh;
     }
 
     header h1 {
@@ -228,7 +230,7 @@
       margin-top: 20px;
     }
 
-    .days-unit { 
+    .days-unit {
       font-size: 24px;
       text-align: center;
       line-height: 100%;
@@ -255,7 +257,7 @@
     .honu-container {
       position: relative;
       width: 100%;
-      height: 360px;
+      height: 300px;
       overflow: hidden;
     }
 
@@ -385,6 +387,19 @@
     document.getElementById("minutes").textContent = minutes;
     document.getElementById("seconds").textContent = seconds;
   }
+
+  function setVh() {
+  const vh = window.visualViewport 
+    ? window.visualViewport.height * 0.01   // UIバーを除いた高さが取れる
+    : window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+
+  // 初回実行
+  setVh();
+
+  // 画面サイズが変わったら更新
+  window.addEventListener('resize', setVh);
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
