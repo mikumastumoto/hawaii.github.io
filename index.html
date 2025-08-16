@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ハワイウェディング旅行サイト</title>
+  <style>
+    body {
+      font-family: "Hiragino Sans", "Arial", sans-serif;
+      background: #fdfdfd;
+      color: #333;
+      margin: 0;
+      text-align: center;
+      line-height: 1.6;
+    }
+    header {
+      background: #ffe8ec;
+      padding: 2em 1em;
+      border-bottom: 2px solid #f5c1c7;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.6em;
+      color: #c03b4a;
+    }
+    header p {
+      margin-top: 0.5em;
+      font-size: 0.95em;
+      color: #555;
+    }
+    main {
+      padding: 2em 1em;
+    }
+    .link-container{
+        padding: 10px 20px;
+    }
+    a.button {
+      display: inline-block;
+      margin: 1em 0;
+      padding: 1em 2em;
+      display: block;
+      background: #c03b4a;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: background 0.2s;
+    }
+    a.button:hover {
+      background: #a12e3b;
+    }
+    footer {
+      margin-top: 2em;
+      padding: 1em;
+      font-size: 0.85em;
+      color: #777;
+      border-top: 1px solid #ddd;
+    }
+    .coming-soon-container{
+        position: relative;
+    }
+    .coming-soon{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        opacity: 0.4;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .coming-soon span{
+        color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ハワイウェディング旅行サイト</h1>
+    <p>家族で安心して旅行を楽しむためのまとめサイト</p>
+  </header>
+
+  <main>
+    <p>必要な持ち物をチェックして、旅行の準備を整えましょう ✈️🌴</p>
+    <div class="link-container">
+        <a href="checklist.html" class="button">持ち物チェックリストへ</a>
+        <a href="https://www.hilton.com/ja/hotels/hnleses-embassy-suites-waikiki-beach-walk/" target="_blank" class="button">ホテル情報</a>
+        <div class="coming-soon-container">
+            <a href="checklist.html" class="button">旅程</a>
+            <a class="coming-soon"><span>coming soon...</span></a>
+        </div>
+    </div>
+</main>
+
+  <footer>
+    &copy; 2025 Family Wedding Trip
+  </footer>
+</body>
+</html>
