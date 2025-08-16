@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+
   <title>スケジュール | ハワイウェディング旅行サイト</title>
   <style>
     body {
@@ -106,6 +107,25 @@
       font-weight: 200;
       font-size: 12px;
     }
+
+    #pdf-container {
+      width: 80%;
+      margin: 20px auto;
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin: 0 auto;
+      height: 800px;
+      overflow-y: scroll;
+    }
+    canvas {
+      display: block;
+      margin: 20px auto;
+      border: 1px solid #ddd;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -162,7 +182,8 @@
 
     <div class="day">
       <h2>他日程</h2>
-      <iframe src="./image/schedule.pdf" width="100%" height="600px"></iframe>
+  <div id="pdf-container"></div>
+
     </div>
 
     <a href="index.html" class="back">← TOP </a>
@@ -172,4 +193,31 @@
     &copy; 2025 Family Wedding Trip
   </footer>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script>
+    // worker設定を忘れずに
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+
+    const url = "./image/schedule.pdf"; // PDFファイルのパス
+    const container = document.getElementById("pdf-container");
+
+    pdfjsLib.getDocument(url).promise.then(pdf => {
+      console.log("ページ数:", pdf.numPages);
+
+      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        pdf.getPage(pageNum).then(page => {
+          const viewport = page.getViewport({ scale: 1.5 });
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          // 描画
+          page.render({ canvasContext: ctx, viewport: viewport });
+          container.appendChild(canvas);
+        });
+      }
+    });
+  </script>
 </html>
