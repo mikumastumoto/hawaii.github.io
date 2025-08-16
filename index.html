@@ -51,17 +51,13 @@
       padding: 1em 2em;
       display: block;
       background: #202f55;
-      color: white;
-      border: 1px solid white;
+      color: #fef8f2;
+      border: 1px solid #fef8f2;
       border-radius: 8px;
       text-decoration: none;
       font-size: 1.1em;
       transition: background 0.2s;
       font-weight: normal;
-    }
-
-    a.button:hover {
-      background: #a12e3b;
     }
 
     footer {
@@ -91,7 +87,7 @@
     }
 
     .coming-soon span {
-      color: white;
+      color: #fef8f2;
     }
 
     .explain {
@@ -137,6 +133,10 @@
           #fef8f2 48px);
     }
 
+    .links {
+      background: #202f55;
+    }
+
     .palms {
       width: 100%;
       object-fit: contain;
@@ -145,12 +145,116 @@
       display: block;
     }
 
-    .main-section{
+    .main-section {
       padding: 2em 1em;
     }
 
-    main {
+    .countdown-container {
+      font-weight: normal;
+      position: relative;
+      border-bottom: 1px solid #202f55;
+      text-align: center;
+      padding: 1em 0;
+      font-size: 1.2em;
+      color: #202f55;
+    }
+
+    .countdown-container h3 {
+      font-weight: normal;
+      font-size: 20px;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      position: relative;
+    }
+
+    .countdown-container h3::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: calc((100% - 240px) / 2);
+      height: 1px;
       background: #202f55;
+      left: 0;
+      top: 50%;
+    }
+
+    .countdown-container h3::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: calc((100% - 240px) / 2);
+      height: 1px;
+      background: #202f55;
+      right: 0;
+      bottom: 50%;
+    }
+
+
+    .countdown-container::after {
+      content: "";
+      position: absolute;
+      top: 36px;
+      left: 0;
+      width: 1px;
+      height: 90%;
+      background: #202f55;
+      display: block;
+    }
+
+    .countdown-container::before {
+      content: "";
+      position: absolute;
+      top: 36px;
+      right: 0;
+      width: 1px;
+      height: 90%;
+      background: #202f55;
+      display: block;
+    }
+
+    .countdown-container-description {
+      font-size: 12px;
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+
+    .count-down-h-m-s {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .count-down-h-m-s.palm {
+      justify-content: center;
+    }
+
+    .count-down-h-m-s img {
+      width: 40px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .days {
+      font-size: 80px;
+      text-align: center;
+      line-height: 100%;
+      margin-top: 20px;
+    }
+
+    .days-unit {
+      font-size: 24px;
+      text-align: center;
+      line-height: 100%;
+    }
+
+    .child-h-m-s {
+      font-size: 28px;
+      line-height: 100%;
+    }
+
+    .child-h-m-s-unit {
+      font-size: 16px;
+      line-height: 100%;
     }
   </style>
 </head>
@@ -169,23 +273,58 @@
       </div>
     </div>
 
-    <!-- <div class="palms-container"> -->
-      <img class="palms" src="./image/palms.png">
-    <!-- </div> -->
+    <img class="palms" src="./image/palms.png">
   </header>
 
   <main>
-    <section class="main-section">
-      <div class="link-container">
+    <!-- <section class="main-section"> -->
+    <section class="links">
+      <div class="link-container main-section">
+        <h2 style="color: #fef8f2;">Related Pages</h2>
         <a href="checklist.html" class="button">持ち物チェックリストへ</a>
         <a href="https://www.hilton.com/ja/hotels/hnleses-embassy-suites-waikiki-beach-walk/" target="_blank"
           class="button">ホテル情報</a>
         <a href="schedule.html" class="button">挙式スケジュール</a>
       </div>
-      <div id="countdown-container" style="text-align:center; padding:1em 0; font-size:1.2em; color:#202f55;">
-        出発まで: <span id="countdown">Loading...</span>
+    </section>
+
+    <section class="main-section">
+      <div id="countdown-container" class="countdown-container">
+        <h3>COUNT DOWN</h3>
+        <p class="countdown-container-description">ハワイ出発まで</p>
+        <div id="countdown">
+          <div class="count-down-h-m-s palm">
+            <img src="./image/palm3.png" style=" margin-right: 10%;">
+            <div>
+              <div id="days" class="days">0</div>
+              <div class="days-unit">days</div>
+            </div>
+            <img src="./image/palm3.png" style="margin-left: 10%;">
+          </div>
+
+          <div class="count-down-h-m-s" style="margin-top: 32px;">
+            <div>
+              <div id="hours" class="child-h-m-s">0</div>
+              <div class="child-h-m-s-unit">hours</div>
+            </div>
+            <div>
+              <div id="minutes" class="child-h-m-s">0</div>
+              <div class="child-h-m-s-unit">min.</div>
+            </div>
+            <div>
+              <div id="seconds" class="child-h-m-s">0</div>
+              <div class="child-h-m-s-unit">seconds</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; font-size: 12px;">To 2025.08.22 21:55</div>
+
+        </div>
       </div>
     </section>
+
+
+    <!-- </section> -->
 
   </main>
 
@@ -201,7 +340,7 @@
     const diff = targetDate - now;
 
     if (diff <= 0) {
-      document.getElementById("countdown").textContent = "いよいよ出発日！🎉お気をつけてお越しください";
+      document.getElementById("countdown").innerHTML = "いよいよ出発日！🎉<br>お気をつけてお越しください";
       return;
     }
 
@@ -210,8 +349,10 @@
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     const seconds = Math.floor((diff / 1000) % 60);
 
-    document.getElementById("countdown").textContent =
-      `${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
   }
 
   updateCountdown();
