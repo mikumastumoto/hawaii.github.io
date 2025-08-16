@@ -120,25 +120,6 @@
       letter-spacing: 14px;
     }
 
-    .border-section {
-      width: 100%;
-      height: 40px;
-    }
-
-    .stripe-border {
-      width: 100%;
-      height: 32px;
-      background: repeating-linear-gradient(90deg,
-          #0077a4 0px,
-          #0077a4 12px,
-          #fef8f2 12px,
-          #fef8f2 24px,
-          #00405d 24px,
-          #00405d 36px,
-          #fef8f2 36px,
-          #fef8f2 48px);
-    }
-
     .links {
       background: #202f55;
     }
@@ -262,13 +243,55 @@
       font-size: 16px;
       line-height: 100%;
     }
+
+    .honu-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .honu-container {
+      position: relative;
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+    }
+
+    #turtle {
+      position: absolute;
+      bottom: 50px;
+      left: -200px;
+      width: 150px;
+      height: auto;
+      animation: swim 10s linear infinite, wiggle 0.3s ease-in-out infinite alternate;
+      transform-origin: center center;
+    }
+
+    @keyframes swim {
+      0% {
+        left: -200px;
+      }
+
+      100% {
+        left: 800px;
+      }
+    }
+
+    @keyframes wiggle {
+      0% {
+        transform: rotate(-5deg);
+      }
+
+      100% {
+        transform: rotate(5deg);
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="border-section">
-    <div class="stripe-border"></div>
-  </div>
   <header>
     <div class="header-container">
       <h1>Hawaii Wedding Party Trip</h1>
@@ -280,6 +303,12 @@
     </div>
 
     <img class="palms" src="./image/palms.png">
+
+    <section class="honu-section">
+      <div class="honu-container">
+        <img id="turtle" src="./image/honu.png">
+      </div>
+    </section>
   </header>
 
   <main>
