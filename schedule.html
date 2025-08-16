@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
   <title>スケジュール | ハワイウェディング旅行サイト</title>
   <style>
     body {
@@ -33,6 +36,7 @@
       border-left: 4px solid #202f55;
       padding-left: 0.5em;
       margin-bottom: 1em;
+      font-weight: 300;
     }
     .event {
       background: #fff;
@@ -49,6 +53,7 @@
       margin-bottom: 0.3em;
       display: flex;
       align-items: center;
+      font-weight: 300;
     }
     .desc {
       font-size: 0.95em;
@@ -70,6 +75,7 @@
       border-radius: 6px;
       text-decoration: none;
       font-size: 0.95em;
+      font-weight: 300;
     }
 
     .map-button{
@@ -78,19 +84,35 @@
       font-size: 18px;
       display: flex;
       align-items: center;
-      font-weight: normal;
+      font-weight: 300;
     }
     .map-button img{
       width: 18px;
       height: 18px;
       margin-left: 12px;
     }
+
+    .title {
+      font-family: "Noto Serif JP", serif;
+    }
+
+    .title .en{
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .title .jp{
+      font-family: "Hiragino Sans", "Arial", sans-serif;
+      font-weight: 200;
+      font-size: 12px;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1 class="title">
-      ウェディング当日スケジュール
+      <span class="en">Wedding Day Schedule</span><br/>
+      <span class="jp">ウェディング当日スケジュール</span>
     </h1>
   </header>
 
@@ -138,7 +160,7 @@
       </div>
     </div>
 
-    <a href="index.html" class="back">← トップページに戻る</a>
+    <a href="index.html" class="back">← TOP </a>
   </main>
 
   <footer>
